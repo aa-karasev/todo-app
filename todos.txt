@@ -1,7 +1,4 @@
-Make pizza.
-Clean the programm
-New order
 Master Python!
 Pick up Iakov
-Buy plantsthrow trash
-
+Buy grocery
+Clean the code
