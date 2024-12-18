@@ -1,11 +1,15 @@
 import functions
 import FreeSimpleGUI as sg
 import time
+import os
 
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", 'w') as file:
+        pass
 
 clock = sg.Text('', key='clock')
 label = sg.Text("Type in a to-do")
-input_box = sg.InputText(tooltip="Enter todo", key='todo')
+input_box = sg.InputText(tooltip="Enter todo", key="todo")
 add_button = sg.Button("Add", size=10)
 list_box = sg.Listbox(values=functions.get_todos(), key='todos',
                       enable_events=True, size=[45, 10])
@@ -46,6 +50,7 @@ while True:
                 window['todos'].update(values=todos)
             except IndexError:
                 sg.popup("Please select an item first.", font=('Helvetica', 10))
+
         case "Complete":
             try:
                 todo_to_complete = values['todos'][0]
